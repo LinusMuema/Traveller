@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   cupertino_icons: ^1.0.0
-  english_words: ^3.1.5
 
 dev_dependencies:
   flutter_test:
@@ -18,3 +18,15 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto.ttf
+          weight: 500
+        - asset: assets/fonts/roboto-light.ttf
+          weight: 100
+        - asset: assets/fonts/roboto-bold.ttf
+          weight: 700
+
