@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_play/components/buttons.dart';
+import 'package:flutter_play/components/dialogs.dart';
 import 'package:flutter_play/components/texts.dart';
 
 class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
+
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
         constraints: BoxConstraints.expand(),
         padding: EdgeInsets.symmetric(horizontal: 25),
@@ -28,7 +33,21 @@ class Splash extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [SplashButton("Log In"), SplashButton("Sign Up")],
+                children: [
+                  Expanded(
+                      child: InkWell(
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return SplashDialog("Log In");
+                                });
+                          },
+                          child: SplashButton("Log In"))),
+                  Expanded(
+                      child: InkWell(
+                          onTap: () {}, child: SplashButton("Sign Up"))),
+                ],
               ),
             )
           ],

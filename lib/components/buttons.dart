@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_play/components/texts.dart';
+
+final BorderRadius radius = BorderRadius.circular(10);
 
 class SplashButton extends StatelessWidget {
   final String _text;
@@ -18,10 +21,10 @@ class SplashButton extends StatelessWidget {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 15),
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(10)),
+                      borderRadius: radius),
                   alignment: Alignment.center,
                   child: ButtonText(_text, Colors.white),
                 ),
@@ -30,6 +33,24 @@ class SplashButton extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class SocialAuthButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(15),
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+          borderRadius: radius,
+          gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [Color(0xff303D99), Color(0xff3478B9)])),
+      child: Center(child: ButtonText("Continue with Facebook", Colors.white)),
     );
   }
 }

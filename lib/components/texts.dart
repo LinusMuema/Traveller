@@ -14,6 +14,24 @@ class Heading extends StatelessWidget {
   }
 }
 
+class SubHeading extends StatelessWidget {
+  final String _text;
+  final Color _color;
+  SubHeading(this._text, this._color);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _text,
+      style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.w700,
+          fontFamily: 'Roboto',
+          color: _color),
+    );
+  }
+}
+
 class NormalText extends StatelessWidget {
   final String _text;
   final Color _color;
