@@ -39,20 +39,7 @@ class Splash extends StatelessWidget {
               margin: EdgeInsets.symmetric(vertical: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                      child: InkWell(
-                          onTap: () {
-                            dialog("Log In", context);
-                          },
-                          child: SplashButton("Log In"))),
-                  Expanded(
-                      child: InkWell(
-                          onTap: () {
-                            dialog("Sign Up", context);
-                          },
-                          child: SplashButton("Sign Up"))),
-                ],
+                children: addButtons(context),
               ),
             )
           ],
@@ -61,11 +48,26 @@ class Splash extends StatelessWidget {
     );
   }
 
-  dialog(String type, BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return SplashDialog(type);
-        });
+  List<Widget> addButtons(BuildContext context) {
+    final _buttons = ["Log In", "Sign Up"];
+    List<Widget> buttons = [];
+    _buttons.forEach((element) {
+      buttons.add(
+        Expanded(
+          child: InkWell(
+            child: SplashButton(element),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return SplashDialog(element);
+                },
+              );
+            },
+          ),
+        ),
+      );
+    });
+    return buttons;
   }
 }
