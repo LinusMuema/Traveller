@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter_play/components/buttons.dart';
 import 'package:flutter_play/components/dividers.dart';
 import 'package:flutter_play/components/inputs.dart';
+import 'package:flutter_play/components/texts.dart';
 
 final Color color = Color(0xffA8B6C8);
+final RoundedRectangleBorder cardShape =
+    RoundedRectangleBorder(borderRadius: BorderRadius.circular(10));
 
 class SplashDialog extends StatelessWidget {
   final String type;
@@ -11,36 +15,39 @@ class SplashDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTextStyle(
-      style: TextStyle(decoration: TextDecoration.none),
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            child: Card(
-                child: Column(
-              children: [
-                Container(
-                  child: Text(type,
-                      style: TextStyle(
-                          color: color,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Roboto')),
-                  margin: EdgeInsets.symmetric(vertical: 10),
-                ),
-                addInputs()
-              ],
-            )),
-          ),
-          WordedDivider(),
-          SocialAuthButton()
-        ],
-      ),
+    return Dialog(
+      insetPadding: EdgeInsets.all(20),
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      child: insertContent(),
     );
   }
 
-  addInputs() {
+  Widget insertContent() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          child: Card(
+            shape: cardShape,
+            child: Column(
+              children: [
+                Container(
+                    child: Text(type, style: normalText(Color(0xff323b45))),
+                    margin: EdgeInsets.symmetric(vertical: 20)),
+                addInputs(),
+                SplashAuthButton(type)
+              ],
+            ),
+          ),
+        ),
+        WordedDivider(),
+        SocialAuthButton()
+      ],
+    );
+  }
+
+  Widget addInputs() {
     final List<Widget> inputs = [];
     inputs.add(
         SplashInput("Username", Icon(Icons.person, color: Color(0xffA8B6C8))));

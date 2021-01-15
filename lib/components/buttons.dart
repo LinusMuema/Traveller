@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_play/components/texts.dart';
 
 final BorderRadius radius = BorderRadius.circular(10);
 
@@ -47,20 +48,37 @@ class SocialAuthButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(15),
-      margin: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-          borderRadius: radius,
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Color(0xff303D99), Color(0xff3478B9)])),
+        borderRadius: radius,
+        gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          colors: [Color(0xff303D99), Color(0xff3478B9)],
+        ),
+      ),
       child: Center(
-        child: Text("Continue with Facebook",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w800,
-                fontFamily: 'Roboto')),
+        child: Text("Continue with Facebook", style: normalText(Colors.white)),
+      ),
+    );
+  }
+}
+
+class SplashAuthButton extends StatelessWidget {
+  final String _text;
+  SplashAuthButton(this._text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(15),
+      margin: EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 10),
+      decoration: BoxDecoration(borderRadius: radius, color: Color(0xfffa2a00)),
+      child: Center(
+        child: Text(
+          _text.contains("Sign") ? "Create account" : _text,
+          style: normalText(Colors.white),
+        ),
       ),
     );
   }

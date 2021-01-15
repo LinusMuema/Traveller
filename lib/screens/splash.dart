@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_play/components/buttons.dart';
 import 'package:flutter_play/components/dialogs.dart';
+import 'package:flutter_play/components/texts.dart';
 
 class Splash extends StatelessWidget {
   @override
@@ -23,42 +24,17 @@ class Splash extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              child: Text(
-                "Explore",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 40,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Roboto'),
-              ),
-              padding: EdgeInsets.only(top: 65, bottom: 2),
-            ),
-            Text(
-              "new amazing countries",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w100,
-                  fontFamily: 'Roboto'),
-            ),
+                child: Text("Explore", style: heading(Colors.black)),
+                padding: EdgeInsets.only(top: 65, bottom: 2)),
+            Text("new amazing countries", style: normalText(Colors.black)),
             Spacer(),
             Container(
               margin: EdgeInsets.symmetric(vertical: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                      child: InkWell(
-                          onTap: () {
-                            dialog("Log In", context);
-                          },
-                          child: SplashButton("Log In"))),
-                  Expanded(
-                      child: InkWell(
-                          onTap: () {
-                            dialog("Sign Up", context);
-                          },
-                          child: SplashButton("Sign Up"))),
+                  addButton(context, "Log In"),
+                  addButton(context, "Sign Up"),
                 ],
               ),
             )
@@ -68,11 +44,19 @@ class Splash extends StatelessWidget {
     );
   }
 
-  dialog(String type, BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return SplashDialog(type);
-        });
+  Widget addButton(BuildContext context, String type) {
+    return Expanded(
+      child: InkWell(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return SplashDialog(type);
+            },
+          );
+        },
+        child: SplashButton(type),
+      ),
+    );
   }
 }

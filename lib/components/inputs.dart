@@ -13,17 +13,19 @@ class SplashInput extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       constraints: BoxConstraints.tightForFinite(height: 50),
       decoration: BoxDecoration(
-          border: Border.all(width: 0.5, color: Color(0xffA8B6C8)),
-          borderRadius: BorderRadius.circular(10)),
+        border: Border.all(width: 0.5, color: Color(0xffA8B6C8)),
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: TextFormField(
         obscureText: hint.contains('password'),
         decoration: new InputDecoration(
-            prefixIcon: icon,
-            border: InputBorder.none,
-            focusedBorder: InputBorder.none,
-            contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-            hintText: hint,
-            hintStyle: TextStyle(color: Color(0xffA8B6C8))),
+          prefixIcon: icon,
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          hintText: hint,
+          hintStyle: TextStyle(color: Color(0xffA8B6C8)),
+        ),
       ),
     );
   }
