@@ -19,7 +19,7 @@ TextStyle h3(Color _color) {
 TextStyle h4(Color _color) {
   return TextStyle(
       color: _color,
-      fontSize: 25,
+      fontSize: 20,
       fontWeight: FontWeight.w700,
       fontFamily: 'Roboto');
 }
