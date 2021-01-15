@@ -11,7 +11,7 @@ class WordedDivider extends StatelessWidget {
       child: Row(
         children: <Widget>[
           divider(),
-          Text("Or", style: normalText(color)),
+          Text("Or", style: caption(color)),
           divider()
         ],
       ),

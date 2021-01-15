@@ -24,9 +24,9 @@ class Splash extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-                child: Text("Explore", style: heading(Colors.black)),
+                child: Text("Explore", style: h2(Colors.black)),
                 padding: EdgeInsets.only(top: 65, bottom: 2)),
-            Text("new amazing countries", style: normalText(Colors.black)),
+            Text("new amazing countries", style: normal(Colors.black)),
             Spacer(),
             Container(
               margin: EdgeInsets.symmetric(vertical: 30),

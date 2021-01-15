@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-TextStyle heading(Color _color) {
+TextStyle h2(Color _color) {
   return TextStyle(
       color: _color,
       fontSize: 40,
@@ -8,7 +8,7 @@ TextStyle heading(Color _color) {
       fontFamily: 'Roboto');
 }
 
-TextStyle subHeading(Color _color) {
+TextStyle h3(Color _color) {
   return TextStyle(
       color: _color,
       fontSize: 30,
@@ -16,11 +16,27 @@ TextStyle subHeading(Color _color) {
       fontFamily: 'Roboto');
 }
 
-TextStyle normalText(Color _color) {
+TextStyle h4(Color _color) {
+  return TextStyle(
+      color: _color,
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'Roboto');
+}
+
+TextStyle normal(Color _color) {
   return TextStyle(
       color: _color,
       fontSize: 25,
       fontWeight: FontWeight.w100,
+      fontFamily: 'Roboto');
+}
+
+TextStyle caption(Color _color) {
+  return TextStyle(
+      color: _color,
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
       fontFamily: 'Roboto');
 }
 
