@@ -12,32 +12,29 @@ class SplashButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Stack(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 12.5),
-            child: ClipRect(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.4),
-                      borderRadius: radius),
-                  alignment: Alignment.center,
-                  child: Text(_text,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800,
-                          fontFamily: 'Roboto')),
-                ),
+    return Stack(
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 12.5),
+          child: ClipRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4), borderRadius: radius),
+                alignment: Alignment.center,
+                child: Text(_text,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
+                        fontFamily: 'Roboto')),
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -24,17 +24,34 @@ class Splash extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-                child: Text("Explore", style: h2(Colors.black)),
-                padding: EdgeInsets.only(top: 65, bottom: 2)),
-            Text("new amazing countries", style: normal(Colors.black)),
+              child: Text(
+                "Explore",
+                style: h2(Colors.black),
+              ),
+              padding: EdgeInsets.only(top: 65, bottom: 2),
+            ),
+            Text(
+              "new amazing countries",
+              style: normal(Colors.black),
+            ),
             Spacer(),
             Container(
               margin: EdgeInsets.symmetric(vertical: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  addButton(context, "Log In"),
-                  addButton(context, "Sign Up"),
+                  Expanded(
+                      child: InkWell(
+                          onTap: () {
+                            dialog("Log In", context);
+                          },
+                          child: SplashButton("Log In"))),
+                  Expanded(
+                      child: InkWell(
+                          onTap: () {
+                            dialog("Sign Up", context);
+                          },
+                          child: SplashButton("Sign Up"))),
                 ],
               ),
             )
@@ -44,19 +61,11 @@ class Splash extends StatelessWidget {
     );
   }
 
-  Widget addButton(BuildContext context, String type) {
-    return Expanded(
-      child: InkWell(
-        onTap: () {
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return SplashDialog(type);
-            },
-          );
-        },
-        child: SplashButton(type),
-      ),
-    );
+  dialog(String type, BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return SplashDialog(type);
+        });
   }
 }
