@@ -17,7 +17,7 @@ class SplashInput extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
-        obscureText: hint.contains('password'),
+        obscureText: hint.contains('word'),
         decoration: new InputDecoration(
           prefixIcon: icon,
           border: InputBorder.none,

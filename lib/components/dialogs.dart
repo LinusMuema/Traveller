@@ -15,11 +15,13 @@ class SplashDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      insetPadding: EdgeInsets.all(20),
-      elevation: 0,
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
-      child: insertContent(),
+      body: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: insertContent(),
+      ),
     );
   }
 
