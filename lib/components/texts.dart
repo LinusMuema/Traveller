@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+final heading = "Explore";
+final subheading = "new amazing countries";
+
 TextStyle h2(Color _color) {
   return TextStyle(
       color: _color,

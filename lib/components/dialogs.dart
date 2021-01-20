@@ -8,10 +8,12 @@ import 'package:flutter_play/components/texts.dart';
 final Color color = Color(0xffA8B6C8);
 final RoundedRectangleBorder cardShape =
     RoundedRectangleBorder(borderRadius: BorderRadius.circular(10));
+typedef void DialogCallback();
 
 class SplashDialog extends StatelessWidget {
   final String type;
-  SplashDialog(this.type);
+  final DialogCallback callback;
+  SplashDialog(this.type, {@required this.callback});
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +40,23 @@ class SplashDialog extends StatelessWidget {
                     child: Text(type, style: h4(Color(0xff323b45))),
                     margin: EdgeInsets.symmetric(vertical: 20)),
                 addInputs(),
-                SplashAuthButton(type)
+                InkWell(
+                  child: SplashAuthButton(type),
+                  onTap: () {
+                    callback();
+                  },
+                )
               ],
             ),
           ),
         ),
         WordedDivider(),
-        SocialAuthButton()
+        InkWell(
+          child: SocialAuthButton(),
+          onTap: () {
+            callback();
+          },
+        )
       ],
     );
   }

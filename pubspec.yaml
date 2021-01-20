@@ -29,4 +29,7 @@ flutter:
           weight: 100
         - asset: assets/fonts/roboto-bold.ttf
           weight: 700
+    - family:  CustomIcons
+      fonts:
+        - asset: assets/fonts/CustomIcons.ttf
 

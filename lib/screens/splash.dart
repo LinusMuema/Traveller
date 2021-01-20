@@ -1,39 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_play/components/buttons.dart';
+import 'package:flutter_play/components/decorations.dart';
 import 'package:flutter_play/components/dialogs.dart';
 import 'package:flutter_play/components/texts.dart';
 
 class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
-
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       body: Container(
         constraints: BoxConstraints.expand(),
         padding: EdgeInsets.symmetric(horizontal: 25),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/splash.png'),
-                fit: BoxFit.cover)),
+        decoration: bgImage('assets/images/splash.png'),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              child: Text(
-                "Explore",
-                style: h2(Colors.black),
-              ),
-              padding: EdgeInsets.only(top: 65, bottom: 2),
-            ),
-            Text(
-              "new amazing countries",
-              style: normal(Colors.black),
-            ),
+                child: Text(heading, style: h2(Colors.black)),
+                padding: EdgeInsets.only(top: 65, bottom: 2)),
+            Text(subheading, style: normal(Colors.black)),
             Spacer(),
             Container(
               margin: EdgeInsets.symmetric(vertical: 30),
@@ -60,7 +47,12 @@ class Splash extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
-                  return SplashDialog(element);
+                  return SplashDialog(
+                    element,
+                    callback: () {
+                      Navigator.pushReplacementNamed(context, '/home');
+                    },
+                  );
                 },
               );
             },
