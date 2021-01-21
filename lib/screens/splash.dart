@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_play/components/buttons.dart';
-import 'package:flutter_play/components/decorations.dart';
 import 'package:flutter_play/components/dialogs.dart';
 import 'package:flutter_play/components/texts.dart';
+import 'package:flutter_play/utils/commons.dart';
 
 class Splash extends StatelessWidget {
   @override

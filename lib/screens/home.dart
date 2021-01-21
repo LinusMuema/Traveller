@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_play/components/country.dart';
 import 'package:flutter_play/components/custom_icons.dart';
-import 'package:flutter_play/components/decorations.dart';
 import 'package:flutter_play/components/texts.dart';
 import 'package:flutter_play/data/countries.dart';
+import 'package:flutter_play/utils/commons.dart';
 
 final Color iconColor = Color(0xff666666);
-final cities = getCountries();
+final countries = getCountries();
 
 class Home extends StatefulWidget {
   @override
@@ -20,6 +21,11 @@ class _HomeState extends State<Home> {
       _selectedIndex = index;
     });
   }
+
+  ScrollController scrollController = ScrollController(
+    initialScrollOffset: 10, // or whatever offset you wish
+    keepScrollOffset: true,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +42,22 @@ class _HomeState extends State<Home> {
                 child: Text(heading, style: h2(Colors.white)),
                 padding: EdgeInsets.only(top: 65, bottom: 2, left: 25)),
             Container(
-                child: Text(subheading, style: normal(Colors.white)),
-                padding: EdgeInsets.only(left: 25)),
+              child: Text(subheading, style: normal(Colors.white)),
+              padding: EdgeInsets.only(left: 25),
+              margin: EdgeInsets.only(bottom: 45),
+            ),
+            Expanded(
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: countries.length,
+                  controller: scrollController,
+                  itemBuilder: (context, index) {
+                    return CountryItem(countries[index]);
+                  }),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 40, bottom: 100),
+            )
           ],
         ),
       ),
