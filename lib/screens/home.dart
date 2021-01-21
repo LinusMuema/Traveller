@@ -15,6 +15,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+  var controller = ScrollController();
 
   void _onItemClicked(int index) {
     setState(() {
@@ -22,14 +23,11 @@ class _HomeState extends State<Home> {
     });
   }
 
-  ScrollController scrollController = ScrollController(
-    initialScrollOffset: 10, // or whatever offset you wish
-    keepScrollOffset: true,
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomPadding: false,
       extendBody: true,
       backgroundColor: Colors.transparent,
       body: Container(
@@ -49,8 +47,8 @@ class _HomeState extends State<Home> {
             Expanded(
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
+                  controller: controller,
                   itemCount: countries.length,
-                  controller: scrollController,
                   itemBuilder: (context, index) {
                     return CountryItem(countries[index]);
                   }),
