@@ -5,15 +5,17 @@ import 'package:flutter_play/screens/explore.dart';
 import 'package:flutter_play/screens/images.dart';
 import 'package:flutter_play/screens/profile.dart';
 
+import 'home.dart';
+
 final Color iconColor = Color(0xff666666);
 final screens = [Home(), Images(), Explore(), Activity(), Profile()];
 
-class Home extends StatefulWidget {
+class Navigation extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _NavigationState createState() => _NavigationState();
 }
 
-class _HomeState extends State<Home> {
+class _NavigationState extends State<Navigation> {
   int _selectedIndex = 0;
 
   void _onItemClicked(int index) {

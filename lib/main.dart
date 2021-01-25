@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.white),
       initialRoute: '/',
-      routes: {'/': (context) => Splash(), '/home': (context) => Home()},
+      routes: {'/': (context) => Splash(), '/home': (context) => Navigation()},
     );
   }
 }
