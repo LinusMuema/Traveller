@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_play/components/colors.dart';
 
 class SplashInput extends StatelessWidget {
   final String hint;
@@ -13,7 +14,7 @@ class SplashInput extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       constraints: BoxConstraints.tightForFinite(height: 50),
       decoration: BoxDecoration(
-        border: Border.all(width: 0.5, color: Color(0xffA8B6C8)),
+        border: Border.all(width: 0.5, color: white300),
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
@@ -24,7 +25,7 @@ class SplashInput extends StatelessWidget {
           focusedBorder: InputBorder.none,
           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           hintText: hint,
-          hintStyle: TextStyle(color: Color(0xffA8B6C8)),
+          hintStyle: TextStyle(color: white300),
         ),
       ),
     );

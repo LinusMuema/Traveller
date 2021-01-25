@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_play/components/colors.dart';
 import 'package:flutter_play/components/country.dart';
 import 'package:flutter_play/components/texts.dart';
 import 'package:flutter_play/data/countries.dart';
@@ -56,7 +57,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     shape: BoxShape.rectangle,
-                    color: active ? Colors.white : Color(0xff666666)),
+                    color: active ? Colors.white : grey300),
               );
             }).toList(),
           )

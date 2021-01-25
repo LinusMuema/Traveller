@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_play/components/colors.dart';
 import 'package:flutter_play/components/custom_icons.dart';
 import 'package:flutter_play/screens/activity.dart';
 import 'package:flutter_play/screens/explore.dart';
@@ -7,8 +8,14 @@ import 'package:flutter_play/screens/profile.dart';
 
 import 'home.dart';
 
-final Color iconColor = Color(0xff666666);
 final screens = [Home(), Images(), Explore(), Activity(), Profile()];
+final icons = [
+  CustomIcons.home,
+  CustomIcons.image,
+  CustomIcons.location,
+  CustomIcons.bell,
+  CustomIcons.profile
+];
 
 class Navigation extends StatefulWidget {
   @override
@@ -34,35 +41,35 @@ class _NavigationState extends State<Navigation> {
       body: screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.transparent,
-        items: [
-          BottomNavigationBarItem(
-              backgroundColor: Colors.transparent,
-              icon: Icon(CustomIcons.home),
-              label: ''),
-          BottomNavigationBarItem(
-              backgroundColor: Colors.transparent,
-              icon: Icon(CustomIcons.image),
-              label: ''),
-          BottomNavigationBarItem(
-              backgroundColor: Colors.transparent,
-              icon: Icon(CustomIcons.location),
-              label: ''),
-          BottomNavigationBarItem(
-              backgroundColor: Colors.transparent,
-              icon: Icon(CustomIcons.bell),
-              label: ''),
-          BottomNavigationBarItem(
-              backgroundColor: Colors.transparent,
-              icon: Icon(CustomIcons.profile),
-              label: '')
-        ],
+        items: icons.map((e) => navBarItem(e)).toList(),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
-        unselectedItemColor: iconColor,
+        unselectedItemColor: grey300,
         onTap: _onItemClicked,
       ),
     );
+  }
+
+  BottomNavigationBarItem navBarItem(IconData icon) {
+    final active = _selectedIndex == icons.indexOf(icon);
+    return BottomNavigationBarItem(
+        icon: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Icon(icon),
+            Container(
+              height: 3,
+              width: MediaQuery.of(context).size.width * 0.09,
+              margin: EdgeInsets.only(top: 5),
+              decoration:
+                  BoxDecoration(color: active ? red500 : Colors.transparent),
+            )
+          ],
+        ),
+        label: '',
+        backgroundColor: Colors.transparent);
   }
 }

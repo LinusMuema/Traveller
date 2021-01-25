@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_play/components/texts.dart';
 
-final Color color = Color(0xffD8D8D8);
+import 'colors.dart';
 
 class WordedDivider extends StatelessWidget {
   @override
@@ -11,7 +11,7 @@ class WordedDivider extends StatelessWidget {
       child: Row(
         children: <Widget>[
           divider(),
-          Text("Or", style: caption(color)),
+          Text("Or", style: caption(white100)),
           divider()
         ],
       ),
@@ -22,7 +22,7 @@ class WordedDivider extends StatelessWidget {
     return Expanded(
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 10),
-        child: Divider(color: color),
+        child: Divider(color: white100),
       ),
     );
   }
