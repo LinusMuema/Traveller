@@ -39,7 +39,7 @@ TextStyle caption(Color _color) {
   return TextStyle(
       color: _color,
       fontSize: 20,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w100,
       fontFamily: 'Roboto');
 }
 

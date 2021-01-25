@@ -1,13 +1,19 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_play/components/country.dart';
 import 'package:flutter_play/components/texts.dart';
 import 'package:flutter_play/data/countries.dart';
 import 'package:flutter_play/utils/commons.dart';
 
-final countries = getCountries();
-final controller = ScrollController();
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
 
-class Home extends StatelessWidget {
+class _HomeState extends State<Home> with TickerProviderStateMixin {
+  final countries = getCountries().map((e) => countryItem(e)).toList();
+  var _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,16 +31,34 @@ class Home extends StatelessWidget {
             margin: EdgeInsets.only(bottom: 45),
           ),
           Expanded(
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                controller: controller,
-                itemCount: countries.length,
-                itemBuilder: (context, index) {
-                  return CountryItem(countries[index]);
-                }),
+            child: CarouselSlider(
+                items: countries,
+                options: CarouselOptions(
+                  height: MediaQuery.of(context).size.longestSide,
+                  autoPlay: true,
+                  onPageChanged: (index, _) {
+                    setState(() {
+                      _currentIndex = index;
+                    });
+                  },
+                )),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 40, bottom: 100),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: countries.map((e) {
+              final index = countries.indexOf(e);
+              final active = _currentIndex == index;
+              return Container(
+                margin:
+                    EdgeInsets.only(top: 40, bottom: 100, left: 5, right: 5),
+                width: active ? 20 : 10,
+                height: 5,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    shape: BoxShape.rectangle,
+                    color: active ? Colors.white : Color(0xff666666)),
+              );
+            }).toList(),
           )
         ],
       ),
