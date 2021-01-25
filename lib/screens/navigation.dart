@@ -53,23 +53,7 @@ class _NavigationState extends State<Navigation> {
   }
 
   BottomNavigationBarItem navBarItem(IconData icon) {
-    final active = _selectedIndex == icons.indexOf(icon);
     return BottomNavigationBarItem(
-        icon: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Icon(icon),
-            Container(
-              height: 3,
-              width: MediaQuery.of(context).size.width * 0.09,
-              margin: EdgeInsets.only(top: 5),
-              decoration:
-                  BoxDecoration(color: active ? red500 : Colors.transparent),
-            )
-          ],
-        ),
-        label: '',
-        backgroundColor: Colors.transparent);
+        icon: Icon(icon), label: '', backgroundColor: Colors.transparent);
   }
 }
