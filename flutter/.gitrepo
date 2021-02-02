@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:LinusMuema/flutter_play.git
+	branch = traveller
+	commit = 54a3c43b90d790f4111e00f2ba19adb11e9501a6
+	parent = bcdde57805f94885ee68c71ca439e3fe4a0ac3d6
+	method = merge
+	cmdver = 0.4.3
