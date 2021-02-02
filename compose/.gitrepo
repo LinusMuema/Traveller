@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:LinusMuema/Mi-Compose.git
+	branch = traveller
+	commit = e4ce523c53445f9c33647687040cc9f8169a2867
+	parent = c49a38224b33975adbb7433f78f81a56567c2f0b
+	method = merge
+	cmdver = 0.4.3
