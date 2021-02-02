@@ -6,7 +6,7 @@ Application designs can be found on [Figma](https://www.figma.com/file/5l2Y2AbOZ
 
 
 ### 🚧 Construction in progress 🚧
-Below are some of the `ready-to-test` apk's equivalent to the code in this repo. 
+Below are some of the `ready-to-test` apk's. The equivalent of the code in this repo. 
 
 | Jetpack compose 	|                                         Flutter                                 	|
 |:-----------------:|:---------------------------------------------------------------------------------:|
